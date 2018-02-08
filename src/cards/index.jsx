@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 
 import Card from '../card';
+import cardsContent from '../content/cards.jsx';
 
 class Cards extends Component {
   render() {
+
+    let cardsElement = cardsContent.map( (item, index) => (
+      <div className="col-md-4">
+          <Card
+            pic={ item.pic }
+            title={ item.title }
+            shortText={ item.shortText } />
+        </div>
+      ));
+
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            <Card />
-          </div>
+          { cardsElement }
         </div>
       </div>
       );

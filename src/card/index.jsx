@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from '../modal';
 
-class Cards extends Component {
+class Card extends Component {
 
   constructor(props) {
     super(props);
@@ -11,24 +11,31 @@ class Cards extends Component {
     }
   }
 
-  modal() {
-    this.setState({modal: !this.state.modal});
+  toggleModal() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   render() {
     return (
       <div className="card">
-        <img className="img-fluid" src="img/card-img.jpg" alt="Товар" />
+        <img className="img-fluid" src={ this.props.pic } alt={ this.props.title } />
         <div className="card-body">
-          <h4 className="card-title">Card title</h4>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button type="button" className="btn btn-outline-info btn-rounded waves-effect" onClick={this.modal.bind(this)}>Подробнее</button>
+          <h4 className="card-title">{ this.props.title }</h4>
+          <p className="card-text">{ this.props.shortText }</p>
+          <button type="button" className="btn btn-outline-info btn-rounded waves-effect"
+            onClick={ this.toggleModal.bind(this) }>Подробнее</button>
           <button type="button" className="btn btn-outline-success btn-rounded waves-effect">Купить</button>
         </div>
-        <Modal title='Товар' content='контент' isOpen={this.state.modal}/>
+        <Modal
+          title={ this.props.title }
+          content={ this.props.shortText }
+          isOpen={ this.state.modal }
+          onClose={ this.toggleModal.bind(this) }/>
       </div>
       );
   }
 }
 
-export default Cards;
+export default Card;

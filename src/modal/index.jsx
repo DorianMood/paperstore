@@ -8,7 +8,7 @@ class Modal extends Component {
     super(props);
 
     this.state = {
-      isOpen: true
+      isOpen: this.props.isOpen
     }
   }
 
@@ -17,24 +17,29 @@ class Modal extends Component {
   }
 
   render() {
+    if (!this.props.isOpen)
+      return null;
 
     let popup = (
-      <div className="modal" tabIndex="-1" id={this.state.isOpen ? 'open' : 'close'}>
-      <div className="modal-dialog">
-      <div className="modal-content">
-      <div className="modal-header">
-      <h5 className="modal-title">{this.props.title}</h5>
-      <button type="button" className="close" onClick={this.close.bind(this)}>
-      <span>&times;</span>
-      </button>
-      </div>
-      <div className="modal-body">{this.props.content}</div>
-      <div className="modal-footer">
-      <button type="button" className="btn btn-secondary">Close</button>
-      <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-      </div>
-      </div>
+      <div className="modal" tabIndex="-1" id={ this.props.isOpen ? 'open' : 'close'}>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{ this.props.title }</h5>
+              <button type="button" className="close" onClick={ this.props.onClose }>
+              <span>&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              { this.props.content }
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-outline-info btn-rounded waves-effect"
+                onClick={ this.props.onClose }>Закрыть</button>
+              <button type="button" className="btn btn-outline-success btn-rounded waves-effect">Купить</button>
+            </div>
+          </div>
+        </div>
       </div>
       );
 
