@@ -4,3 +4,10 @@
 #close {
 	display: none;
 }
+
+.modal {
+	z-index: 10;
+}
+.modal-dialog {
+	z-index: 20;
+}

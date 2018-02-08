@@ -21,7 +21,7 @@ class Modal extends Component {
       return null;
 
     let popup = (
-      <div className="modal" tabIndex="-1" id={ this.props.isOpen ? 'open' : 'close'}>
+      <div className="modal" tabIndex="-1" id={ this.props.isOpen ? 'open' : 'close'} onClick={ this.props.onClose }>
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
