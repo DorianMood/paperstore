@@ -18,7 +18,7 @@ class Reviews extends Component {
     let reviews = [];
     for (let i = 0; i < 4; i++) {
       reviews.push(
-        <div className="col-md-3">
+        <div className="col-md-3" key={ i }>
           <Review title={reviewContent[i].title} pic={reviewContent[i].pic} review={reviewContent[i].review}/>
         </div>
       );

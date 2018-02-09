@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './Modal.css';
 
@@ -14,6 +15,10 @@ class Modal extends Component {
 
   close() {
     this.setState({isOpen: !this.state.isOpen});
+  }
+
+  onClickBuy() {
+    this.props.onAddItemToCart(this.props.title, this.props.price);
   }
 
   render() {
@@ -36,7 +41,9 @@ class Modal extends Component {
             <div className="modal-footer">
               <button type="button" className="btn btn-outline-info btn-rounded waves-effect"
                 onClick={ this.props.onClose }>Закрыть</button>
-              <button type="button" className="btn btn-outline-success btn-rounded waves-effect">Купить</button>
+
+              <button type="button" className="btn btn-outline-success btn-rounded waves-effect"
+                onClick={ this.onClickBuy.bind(this) }>Купить</button>
             </div>
           </div>
         </div>
@@ -49,4 +56,13 @@ class Modal extends Component {
   }
 }
 
-export default Modal;
+export default connect(
+  state => ({
+    cartStore: state
+  }),
+  dispatch => ({
+    onAddItemToCart: (title, price) => {
+      dispatch({ type: 'ADD_ITEM', payload: {title: title, price: price}});
+    }
+  })
+  )(Modal);
