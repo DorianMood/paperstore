@@ -15,6 +15,11 @@ function cart(state = [], action) {
       ...state,
       action.payload
     ];
+  } else if (action.type === 'REMOVE_ITEM') {
+    state.splice(action.index, 1);
+    return [
+      ...state
+    ];
   }
   return state;
 }

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Modal from '../modal';
 
+import './Card.css';
+
 class Card extends Component {
 
   constructor(props) {
@@ -36,11 +38,23 @@ class Card extends Component {
             onClick={ this.onClickBuy.bind(this) }>Купить</button>
         </div>
         <Modal
-          title={ this.props.title }
-          content={ this.props.shortText }
-          isOpen={ this.state.modal }
-          price={ this.props.price }
-          onClose={ this.toggleModal.bind(this) }/>
+          isOpen={ this.state.modal }>
+          <div className="modal-header">
+            <h5 className="modal-title">{ this.props.title }</h5>
+            <button type="button" className="close" onClick={ this.toggleModal.bind(this) }>
+            <span>&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            { this.props.shortText }
+          </div>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-outline-info btn-rounded waves-effect"
+              onClick={ this.toggleModal.bind(this) }>Закрыть</button>
+            <button type="button" className="btn btn-outline-success btn-rounded waves-effect"
+              onClick={ this.onClickBuy.bind(this) }>Купить</button>
+          </div>
+        </Modal>
       </div>
       );
   }
