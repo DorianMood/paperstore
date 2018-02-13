@@ -4,3 +4,20 @@
 .btn:active {
   box-shadow: inset 0px 0px 8px 4px rgba(0,0,0,0.15) !important;
 }
+
+.card-modal-img {
+  max-width: 40%;
+  float: left;
+}
+.top-content {
+  display: inline-block;
+  margin: 20px 0;
+}
+.bottom-content {
+  display: inline-block;
+  margin: 20px 0;
+  width: 100%;
+}
+.list-group {
+  float: left;
+}

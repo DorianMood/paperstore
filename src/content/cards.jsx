@@ -1,39 +1,75 @@
 var reviews = [
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы1',
-		price: 1000,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		title: 'СЕРДЦЕ',
+		price: 680,
+		shortText: '3D-конструктор для сборки полигональной модели СЕРДЦЕ из дизайнерского картона.\nГотовая скульптура используется для интерьерного декора. Все детали пронумерованы, подготовлены линии сгиба.',
+		complexity: '1 из 5',
+		time: '1 час',
+		age: '14+',
+		accessories: 'инструкция, комплект подготовленных деталей, клей',
+		scales: null,
+		colors: [ 'красный' ]
 	},
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы2',
-		price: 900,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		title: 'JAGUAR',
+		price: 1170,
+		shortText: '3D-конструктор PAPERSCALE для сборки маски JAGUAR из дизайнерского картона.\nГотовая маска используется в декоративных и развлекательных целях. Все детали пронумерованы, подготовлены линии сгиба. ',
+		complexity: '2 из 5',
+		time: '3 часа',
+		age: '14+',
+		accessories: 'комплект подготовленных деталей, клей',
+		scales: null,
+		colors: [ 'белый' ]
 	},
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы3',
+		title: 'STARK',
 		price: 1500,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		shortText: '3D-конструктор PAPERSCALE для сборки полигональной модели трофейной головы STARK из дизайнерского картона.\nГотовая скульптура используется для интерьерного декора. Все детали вырезаны и пронумерованы, подготовлены линии сгиба.',
+		complexity: '4 из 5',
+		time: '5 часов',
+		age: '14+',
+		accessories: 'инструкция, комплект подготовленных деталей, клей, крючок на липкой основе',
+		scales: '40/28/40',
+		colors: [ 'черный' ]
 	},
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы4',
-		price: 1800,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		title: 'ШТУРМОВИК',
+		price: 1250,
+		shortText: '3D-конструктор PAPERSCALE для сборки маски ШТУРОВИК из дизайнерского картона.\nГотовая маска используется в декоративных и развлекательных целях. Все детали пронумерованы, подготовлены линии сгиба.',
+		complexity: '5 из 5',
+		time: '4 часа',
+		age: '14+',
+		accessories: 'комплект подготовленных деталей, клей',
+		scales: '27/28/30',
+		colors: [ 'белый' ]
 	},
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы5',
-		price: 500,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		title: 'Murka',
+		price: 1250,
+		shortText: '3D-конструктор PAPERSCALE для сборки полигональной модели Murka из дизайнерского картона.\nГотовая скульптура используется для интерьерного декора. Все детали пронумерованы, подготовлены линии сгиба.',
+		complexity: '2 из 5',
+		time: '1-2 часа',
+		age: '14+',
+		accessories: 'инструкция, комплект подготовленных деталей, клей',
+		scales: null,
+		colors: [ 'красный', 'черный' ]
 	},
 	{
 		pic: 'img/nikolay.jpg',
-		title: 'Маска лисы6',
-		price: 1200,
-		shortText: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+		title: 'Маска ЛИСА',
+		price: 720,
+		shortText: '3D-конструктор PAPERSCALE для сборки полумаски ЛИСА из дизайнерского картона.\nГотовая маска используется в декоративных и развлекательных целях. Все детали пронумерованы, подготовлены линии сгиба. ',
+		complexity: '2 из 5',
+		time: '30 минут',
+		age: '14+',
+		accessories: 'инструкция, комплект деталей из дизайнерского картона, клей, резинка модельная',
+		scales: '15/18/18',
+		colors: [ 'белый', 'черный' ]
 	}
 ]
 

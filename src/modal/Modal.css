@@ -11,6 +11,8 @@
 }
 .modal-dialog {
 	z-index: 1001;
+	max-width: 60vw;
+	width: 50vw !important;
 }
 .modal-right {
 	position: fixed;

@@ -9,10 +9,7 @@ class Cards extends Component {
     let cardsElement = cardsContent.map( (item, index) => (
       <div className="col-md-4" key={ index }>
           <Card
-            pic={ item.pic }
-            title={ item.title }
-            shortText={ item.shortText }
-            price={ item.price } />
+            item={ item } />
         </div>
       ));
 
