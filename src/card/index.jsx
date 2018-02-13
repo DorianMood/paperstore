@@ -49,30 +49,14 @@ class Card extends Component {
             <div className="top-content">
               <p>
                 <img src={ this.props.item.pic } alt={this.props.item.title} className='card-modal-img' />
-                { this.props.item.shortText }
+                { this.props.item.shortText } <br/>
+                <b>Сложность:</b> { this.props.item.complexity }.<br/>
+                <b>Оринтеровочное время:</b> { this.props.item.time }.<br/>
+                <b>В комплекте:</b> { this.props.item.accessories }.<br/>
+                <b>Размеры:</b> { this.props.item.scales } см.<br/>
+                <b>Рекомендуемый возраст:</b> { this.props.item.age }.<br/>
+                <b>Цвета:</b> { this.props.item.colors }
               </p>
-            </div>
-            <div className="bottom-content">
-              <ul className="list-group">
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>Сложность: { this.props.item.complexity }</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>Оринтеровочное время: { this.props.item.time }</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>В комплекте: { this.props.item.accessories }</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>Размеры: { this.props.item.scales } см</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>Рекомендуемый возраст: { this.props.item.age }</span>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>Цвета: { this.props.item.colors }</span>
-                </li>
-              </ul>
             </div>
           </div>
           <div className="modal-footer">
