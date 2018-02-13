@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Modal from '../modal';
 
@@ -23,6 +24,7 @@ class Card extends Component {
 
   onClickBuy() {
     this.props.onAddItemToCart(this.props.item.title, this.props.item.price);
+    toast("Добавлено!", { type: toast.TYPE.INFO, autoClose: 2000 });
   }
 
   render() {
@@ -47,16 +49,22 @@ class Card extends Component {
           </div>
           <div className="modal-body">
             <div className="top-content">
-              <p>
-                <img src={ this.props.item.pic } alt={this.props.item.title} className='card-modal-img' />
-                { this.props.item.shortText } <br/>
-                <b>Сложность:</b> { this.props.item.complexity }.<br/>
-                <b>Оринтеровочное время:</b> { this.props.item.time }.<br/>
-                <b>В комплекте:</b> { this.props.item.accessories }.<br/>
-                <b>Размеры:</b> { this.props.item.scales } см.<br/>
-                <b>Рекомендуемый возраст:</b> { this.props.item.age }.<br/>
-                <b>Цвета:</b> { this.props.item.colors }
-              </p>
+              <div className="row">
+                <div className="col-md-5">
+                  <img src={ this.props.item.pic } alt={this.props.item.title} className='card-modal-img' />
+                </div>
+                <div className="col-md-7 top-content-text">
+                  <p>
+                    { this.props.item.shortText } <br/>
+                    <b>Сложность:</b> { this.props.item.complexity }.<br/>
+                    <b>Оринтеровочное время:</b> { this.props.item.time }.<br/>
+                    <b>В комплекте:</b> { this.props.item.accessories }.<br/>
+                    <b>Размеры:</b> { this.props.item.scales } см.<br/>
+                    <b>Рекомендуемый возраст:</b> { this.props.item.age }.<br/>
+                    <b>Цвета:</b> { this.props.item.colors }
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="modal-footer">

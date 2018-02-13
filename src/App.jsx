@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+
 import Navbar from './navbar';
 import VideoLogo from './video-logo';
 import Cards from './cards';
 import Reviews from './reviews';
 import Bottom from './bottom';
+import Toast from './toast';
 
 import './App.css';
 
@@ -38,6 +41,8 @@ class App extends Component {
           <Reviews />
 
           <Bottom />
+
+          <ToastContainer />
         </div>
       </Provider>
     );
