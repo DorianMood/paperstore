@@ -1,18 +1,23 @@
 #open {
 	display: block !important;
+	overflow-y: auto;
 }
-#close {
-	display: none;
-}
-
 .modal {
-	z-index: 1000;
-	background-color: #000000aa;
+	padding-right: 0!important;
+	overflow-y: auto;
 }
-.modal-dialog {
-	z-index: 1001;
-	max-width: 60vw;
-	width: 50vw !important;
+.modal {
+	background-color: #000000aa;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 800 ;
+	display: none;
+	overflow: hidden;
+	outline: 0;
+	transition: ease 1.5s;
 }
 .modal-right {
 	position: fixed;
@@ -20,4 +25,45 @@
 	top: 0;
 	bottom: 0;
 	width: 400px;
+}
+.modal-dialog {
+	z-index: 1000;
+	position: relative;
+	width: auto;
+	margin: .5rem;
+	pointer-events: none;
+	margin-left: auto;
+	margin-right: auto;
+	pointer-events: auto;
+}
+.modal-content {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: .3rem;
+	outline: 0;
+}
+.modal-dialog .modal-body {
+	padding: 1.5rem;
+	color: #616161;
+}
+.modal-body {
+	position: relative;
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	padding: 1rem;
+}
+.modal-lg {
+	margin: 2rem auto;
 }

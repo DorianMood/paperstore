@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './min.css';
 import './Modal.css';
 
 class Modal extends Component {
@@ -20,7 +21,7 @@ class Modal extends Component {
 
     let popup = (
       <div className="modal" tabIndex="-1" id={ this.props.isOpen ? 'open' : 'close'} onClick={ this.props.onClose }>
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-lg">
           <div className={ this.props.right ? "modal-content modal-right" : "modal-content" }>
             { this.props.children }
           </div>

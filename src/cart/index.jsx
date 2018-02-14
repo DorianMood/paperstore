@@ -33,7 +33,7 @@ class Cart extends Component {
     return (
       <div>
         <div onClick={ this.toggleModal.bind(this) } className="show-cart-button">
-          <i className="fa fa-flag fa-2x pull-left"></i>
+          <i className="fa fa-shopping-bag fa-2x pull-left"></i>
         </div>
         <Modal
           right={ true }
