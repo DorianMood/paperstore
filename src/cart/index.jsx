@@ -23,6 +23,13 @@ class Cart extends Component {
     this.props.onRemoveItemFromCart(id);
   }
 
+  buy() {
+    fetch('https://api.telegram.org/bot534974561:AAFMghBAuSgfB7_L8DdP3bOZnrZGzNMklyk/getMe').then(
+      response => {
+        console.log(response);
+      });
+  }
+
   render() {
 
     let summary = 0;
@@ -58,8 +65,10 @@ class Cart extends Component {
             </ul>
           </div>
           <div className="modal-footer">
-            <div className="cart-item">Сумма : </div>
-            { summary }
+            <div className="cart-item">Сумма : { summary }</div>
+            <button type="button" className="btn btn-success btn-rounded waves-effect" onClick={ this.buy.bind(this) }>
+              Купить
+            </button>
           </div>
         </Modal>
       </div>

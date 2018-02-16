@@ -9,6 +9,10 @@
 # production
 /build
 
+#pictures
+/ph
+/public/img/content
+
 # misc
 .DS_Store
 .env.local
