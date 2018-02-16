@@ -5,3 +5,13 @@
 	margin: 0 10px;
 	display: inline;
 }
+.prefix {
+	display: inline-block;
+}
+input:focus ~ label, input:valid ~ label {
+	top:-20px;
+	font-size:14px;
+}
+.form-control {
+	display: inline-block;
+}

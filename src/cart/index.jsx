@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Modal from '../modal';
 
 import './Cart.css';
+import '../modal/min.css';
 
 class Cart extends Component {
 
@@ -11,12 +12,21 @@ class Cart extends Component {
     super(props);
 
     this.state = {
-      modal: false
+      modal: false,
+      contactForm: false
     }
   }
 
   toggleModal() {
-    this.setState({modal: !this.state.modal});
+    this.setState((prevState) => {
+      return { modal: !this.state.modal };
+    });
+  }
+
+  toggleContactForm() {
+    this.setState((prevState) => {
+      return { contactForm: !this.state.contactForm };
+    });
   }
 
   removeFromCart(id) {
@@ -24,7 +34,7 @@ class Cart extends Component {
   }
 
   buy() {
-    fetch('https://api.telegram.org/bot534974561:AAFMghBAuSgfB7_L8DdP3bOZnrZGzNMklyk/getMe').then(
+    fetch('http://localhost:5000/?telegram=${1}&whatsapp=${2}&vk=${3}&name={4}&comment=${5}').then(
       response => {
         console.log(response);
       });
@@ -66,9 +76,52 @@ class Cart extends Component {
           </div>
           <div className="modal-footer">
             <div className="cart-item">Сумма : { summary }</div>
-            <button type="button" className="btn btn-success btn-rounded waves-effect" onClick={ this.buy.bind(this) }>
+            <button type="button" className="btn btn-success btn-rounded waves-effect" onClick={ this.toggleContactForm.bind(this) }>
               Купить
             </button>
+            <Modal isOpen={ this.state.contactForm }>
+              <div className="modal-header text-center">
+                  <h4 className="modal-title w-100 font-bold">Как с вами связаться?</h4>
+                  <button type="button" className="close" onClick={ this.toggleContactForm.bind(this) }>
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div className="modal-body mx-3">
+                  <div className="md-form">
+                      <i className="fa fa-user prefix grey-text"></i>
+                      <input type="text" id="form3" className="form-control validate"/>
+                      <label data-error="wrong" data-success="right">Как к вам обращаться</label>
+                  </div>
+
+                  <div className="md-form">
+                      <i className="fa fa-vk prefix grey-text"></i>
+                      <input type="email" id="form2" className="form-control validate"/>
+                      <label>ВКонтакте</label>
+                  </div>
+
+                  <div className="md-form">
+                      <i className="fa fa-telegram prefix grey-text"></i>
+                      <input type="text" id="form32" className="form-control validate"/>
+                      <label>Telegram</label>
+                  </div>
+
+                  <div className="md-form">
+                      <i className="fa fa-whatsapp prefix grey-text"></i>
+                      <input type="text" id="form32" className="form-control validate"/>
+                      <label>Whatsapp</label>
+                  </div>
+
+                  <div className="md-form">
+                      <i className="fa fa-pencil prefix grey-text"></i>
+                      <textarea type="text" className="md-textarea"></textarea>
+                      <label>Комментарий</label>
+                  </div>
+
+              </div>
+              <div className="modal-footer d-flex justify-content-center">
+                  <button className="btn btn-unique" onClick={ this.buy.bind(this) }>Поехали!<i className="fa fa-paper-plane-o ml-1"></i></button>
+              </div>
+            </Modal>
           </div>
         </Modal>
       </div>
