@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Modal from '../modal';
 
@@ -34,9 +35,26 @@ class Cart extends Component {
   }
 
   buy() {
-    fetch('http://localhost:5000/?telegram=${1}&whatsapp=${2}&vk=${3}&name={4}&comment=${5}').then(
+    if (!this.props.store.length) {
+      toast("Корзина пуста.", { type: toast.TYPE.WARNING, autoClose: 2000 });
+      return;
+    }
+    if (!(this.telegram.value || this.whatsapp.value || this.vk.value)) {
+      toast("Заполните хоть один свой контакт.", { type: toast.TYPE.WARNING, autoClose: 2000 });
+      return;
+    }
+    if (!this.name.value) {
+      toast("Как вас зовут?", { type: toast.TYPE.WARNING, autoClose: 2000 });
+      return;
+    }
+    let cart = this.props.store.map((item, index) => item.title).join(' ');
+    //console.log(`${this.telegram.value} ${this.whatsapp.value} ${this.vk.value} ${this.name.value} ${this.comment.value}`);
+    fetch(`http://api.paperscale.online/add?telegram=${this.telegram.value}&whatsapp=${this.whatsapp.value}&vk=${this.vk.value}&name=${this.name.value}&comment=${this.comment.value}&cart=${cart}`).then(
       response => {
-        console.log(response);
+        this.toggleContactForm();
+        this.toggleModal();
+        toast("Ждите! Мы уже вам пишем!", { type: toast.TYPE.SUCCESS, autoClose: 2000 });
+        this.props.onClearCart();
       });
   }
 
@@ -50,7 +68,7 @@ class Cart extends Component {
     return (
       <div>
         <div onClick={ this.toggleModal.bind(this) } className="show-cart-button">
-          <i className="fa fa-shopping-bag fa-2x pull-left"></i>
+          <i className="fa fa-shopping-bag fa-2x"></i>
         </div>
         <Modal
           right={ true }
@@ -89,31 +107,38 @@ class Cart extends Component {
               <div className="modal-body mx-3">
                   <div className="md-form">
                       <i className="fa fa-user prefix grey-text"></i>
-                      <input type="text" id="form3" className="form-control validate"/>
-                      <label data-error="wrong" data-success="right">Как к вам обращаться</label>
+                      <input type="text" id="form3" className="form-control validate"
+                        ref={ (input) => this.name = input }/>
+                      <label data-error="wrong" data-success="right">
+                        Как к вам обращаться
+                      </label>
                   </div>
 
                   <div className="md-form">
                       <i className="fa fa-vk prefix grey-text"></i>
-                      <input type="email" id="form2" className="form-control validate"/>
+                      <input type="text" id="form2" className="form-control validate"
+                        ref={ (input) => this.vk = input }/>
                       <label>ВКонтакте</label>
                   </div>
 
                   <div className="md-form">
                       <i className="fa fa-telegram prefix grey-text"></i>
-                      <input type="text" id="form32" className="form-control validate"/>
+                      <input type="text" id="form32" className="form-control validate"
+                        ref={ (input) => this.telegram = input }/>
                       <label>Telegram</label>
                   </div>
 
                   <div className="md-form">
                       <i className="fa fa-whatsapp prefix grey-text"></i>
-                      <input type="text" id="form32" className="form-control validate"/>
+                      <input type="text" id="form32" className="form-control validate"
+                        ref={ (input) => this.whatsapp = input }/>
                       <label>Whatsapp</label>
                   </div>
 
                   <div className="md-form">
                       <i className="fa fa-pencil prefix grey-text"></i>
-                      <textarea type="text" className="md-textarea"></textarea>
+                      <textarea type="text" className="md-textarea"
+                        ref={ (input) => this.comment = input }></textarea>
                       <label>Комментарий</label>
                   </div>
 
@@ -136,6 +161,9 @@ export default connect(
   dispatch => ({
     onRemoveItemFromCart(index) {
       dispatch({ type: 'REMOVE_ITEM', index: index});
+    },
+    onClearCart() {
+      dispatch({ type: 'CLEAR_CART'});
     }
   })
 )(Cart);

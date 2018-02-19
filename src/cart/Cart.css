@@ -1,5 +1,12 @@
 .show-cart-button {
+	right: 20px;
+	bottom: 20px;
+	position: fixed;
 	cursor: pointer;
+	padding: 30px;
+	border-radius: 50%;
+	background-color: #00c851;
+	z-index: 10000;
 }
 .cart-item {
 	margin: 0 10px;

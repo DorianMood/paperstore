@@ -19,7 +19,7 @@ class Bottom extends Component {
       </div>
       <div className="footer-copyright">
       <div className="container-fluid">
-      <a href="https://vk.com/che_pacany_ssim"> PaperScale </a>
+      <a href="https://vk.com/paperscale"> PaperScale </a>
       </div>
       </div>
       </footer>

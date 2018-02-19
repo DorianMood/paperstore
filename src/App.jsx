@@ -22,6 +22,8 @@ function cart(state = [], action) {
     return [
       ...state
     ];
+  } else if (action.type === 'CLEAR_CART') {
+    return [];
   }
   return state;
 }
