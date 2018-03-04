@@ -49,7 +49,7 @@ class Cart extends Component {
     }
     let cart = this.props.store.map((item, index) => item.title).join(' ');
     //console.log(`${this.telegram.value} ${this.whatsapp.value} ${this.vk.value} ${this.name.value} ${this.comment.value}`);
-    fetch(`http://api.paperscale.online/add?telegram=${this.telegram.value}&whatsapp=${this.whatsapp.value}&vk=${this.vk.value}&name=${this.name.value}&comment=${this.comment.value}&cart=${cart}`).then(
+    fetch(`https://api.paperscale.online/add?telegram=${this.telegram.value}&whatsapp=${this.whatsapp.value}&vk=${this.vk.value}&name=${this.name.value}&comment=${this.comment.value}&cart=${cart}`).then(
       response => {
         this.toggleContactForm();
         this.toggleModal();

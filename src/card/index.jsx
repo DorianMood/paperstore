@@ -33,7 +33,11 @@ class Card extends Component {
         <img className="img-fluid" src={ this.props.item.pic } alt={ this.props.item.title } />
         <div className="card-body">
           <h4 className="card-title">{ this.props.item.title }</h4>
-          <p className="card-text">{ this.props.item.shortText }</p>
+          <div className="inline-block">
+            <p className="card-text"><b>Сложность:</b> { this.props.item.complexity }</p>
+            <p className="card-text"><b>Оринтеровочное время:</b> { this.props.item.time }</p>
+            <p className="card-text"><b>Цена:</b> { this.props.item.price } руб.</p>
+            </div>
           <button type="button" className="btn btn-outline-info btn-rounded waves-effect"
             onClick={ this.toggleModal.bind(this) }>Подробнее</button>
           <button type="button" className="btn btn-outline-success btn-rounded waves-effect"

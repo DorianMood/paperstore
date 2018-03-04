@@ -5,6 +5,15 @@
   box-shadow: inset 0px 0px 8px 4px rgba(0,0,0,0.15) !important;
 }
 
+.card-text {
+  margin: 0 !important;
+  float: left;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
 .card-modal-img {
   margin: 0 20px;
   max-width: 100%;
