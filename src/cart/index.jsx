@@ -49,11 +49,18 @@ class Cart extends Component {
     }
     let cart = this.props.store.map((item, index) => item.title).join(' ');
     //console.log(`${this.telegram.value} ${this.whatsapp.value} ${this.vk.value} ${this.name.value} ${this.comment.value}`);
-    fetch(`https://api.paperscale.online/add?telegram=${this.telegram.value}&whatsapp=${this.whatsapp.value}&vk=${this.vk.value}&name=${this.name.value}&comment=${this.comment.value}&cart=${cart}`).then(
+    fetch(`https://api.paperscale.online/add?telegram=${this.telegram.value}&whatsapp=${this.whatsapp.value}&vk=${this.vk.value}&name=${this.name.value}&comment=${this.comment.value}&cart=${cart}`,
+      { mode: 'no-cors' }).then(
       response => {
         this.toggleContactForm();
         this.toggleModal();
         toast("Ждите! Мы уже вам пишем!", { type: toast.TYPE.SUCCESS, autoClose: 2000 });
+        this.props.onClearCart();
+      }).catch(
+      error => {
+        this.toggleContactForm();
+        this.toggleModal();
+        toast("Ой! У нас что-то с сервером!", { type: toast.TYPE.ERROR, autoClose: 2000 });
         this.props.onClearCart();
       });
   }

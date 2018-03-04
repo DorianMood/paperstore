@@ -14,11 +14,11 @@ class Bottom extends Component {
             </div>
           </div>
           <hr className="clearfix d-md-none rgba-white-light" id="bottom" />
-          <div class="text-center">
-              <ul class="list-unstyled list-inline">
-                  <li class="list-inline-item"><a class="btn-floating btn-sm btn-li mx-1" href="" target="_blank"><i class="fa fa-telegram"> </i></a></li>
-                  <li class="list-inline-item"><a class="btn-floating btn-sm btn-vk mx-1"  target="_blank" href="https://vk.com/paperscale"><i class="fa fa-vk"> </i></a></li>
-                  <li class="list-inline-item"><a class="btn-floating btn-sm btn-slack mx-1"  target="_blank" href=""><i class="fa fa-whatsapp"> </i></a></li>
+          <div className="text-center">
+              <ul className="list-unstyled list-inline">
+                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-li mx-1" href="" target="_blank"><i className="fa fa-telegram"> </i></a></li>
+                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-vk mx-1"  target="_blank" href="https://vk.com/paperscale"><i className="fa fa-vk"> </i></a></li>
+                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-slack mx-1"  target="_blank" href=""><i className="fa fa-whatsapp"> </i></a></li>
               </ul>
           </div>
         </div>
